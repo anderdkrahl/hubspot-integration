@@ -81,26 +81,26 @@ public class TokenService {
   }
 
   public void refreshAccessToken() {
-    System.out.println("#################### Refreshing access token #########################");
     String refreshToken = getRefreshToken();
     if (refreshToken == null) {
       throw new IllegalStateException("Token not found, you need to log in.");
     }
-
+    
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
+    
     MultiValueMap<String, String> body = new LinkedMultiValueMap<>();
     body.add("grant_type", "refresh_token");
     body.add("client_id", config.getClientId());
     body.add("client_secret", config.getClientSecret());
     body.add("refresh_token", refreshToken);
-
+    
     HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(body, headers);
-
+    
     TokenDTO newToken = new RestTemplate().postForObject(config.getTokenUrl(), request, TokenDTO.class);
-
+    
     if (newToken != null) {
+      System.out.println("#################### Refreshing access token #########################");
       System.out.println("New Access Token: " + newToken.getAccess_token());
       System.out.println("Refresh Token: " + newToken.getRefresh_token());
       saveToken(newToken);
