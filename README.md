@@ -9,7 +9,7 @@ Este projeto tem como objetivo integrar uma API local em Spring Boot com a API d
 - **NGROK**: Usado para fornecer URLs públicas para testes de webhooks. Necessário para testar a integração com a API do HubSpot em ambientes de desenvolvimento.
 
 ## **Video demonstrando as configurações necessárias e o projeto executando**
-[Integração HubSpot e Spring Boot](https://www.youtube.com/watch?v=zcgtQzzEq-M)  
+[Integração HubSpot e Spring Boot](https://www.youtube.com/watch?v=z8NKEf-FCbE)  
 
 
 ## Requisitos do HubSpot
